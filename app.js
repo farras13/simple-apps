@@ -4,11 +4,11 @@ const app = express()
 const path = require('path')
 require('dotenv').config();
 
+app.disable("x-powered-by");
 // Import Middleware
 const logger = require('./middleware/logger')
 app.use(logger)
 const connection = require('./middleware/db_connect');
-
 // Dashboard
 app.use('/', express.static(path.join(__dirname, 'public')));
 
